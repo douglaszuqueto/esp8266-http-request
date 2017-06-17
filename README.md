@@ -70,3 +70,5 @@ String makeRequest(String url)
 ```
 
 ## Referências
+
+* [Biblioteca ESP8266HTTPClient](https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266HTTPClient);
