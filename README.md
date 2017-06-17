@@ -11,7 +11,7 @@
 * PUT - atualizar algum registro do servidor
 * DELETE - remover algum registro do servidor
 
-## Simples requisição
+## Estrutura simples de uma requisição HTTP
 
 ```c
 // ############# HTTP REQUEST ################ //
@@ -49,14 +49,16 @@ String makeRequest(String url)
 }
 ```
 
-## GET
+## Realizando requisições ao Servidor
+
+### GET
 
 ```c
   http.begin(url);
   int httpCode = http.GET();
 ```
 
-## POST
+### POST
 
 ```c
   http.begin(url);
