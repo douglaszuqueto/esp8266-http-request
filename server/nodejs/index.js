@@ -45,6 +45,12 @@ app.post('/temperatures', (req, res) => {
   res.json(temperature);
 });
 
+app.delete('/temperatures/:id', (req, res) => {
+  console.log(req.params.id);
+
+  return res.json({});
+});
+
 /* App listen */
 app.listen(3000, () => {
   console.log(`nodejs-backend is running`);
