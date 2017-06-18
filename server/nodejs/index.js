@@ -8,44 +8,46 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-const temperatures = [
+const sensors = [
   {
     'id': 1234,
     'name': 'DHT22',
+    'type': 'temperature',
     'value': 25,
   },
   {
     'id': 4321,
     'name': 'DHT11',
+    'type': 'temperature',
     'value': 25,
   }
 ];
 
 /* Routes */
-app.get('/temperatures', (req, res) => res.json(temperatures));
+app.get('/sensors', (req, res) => res.json(sensors));
 
-app.get('/temperatures/:id', (req, res) => {
+app.get('/sensors/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const temperature = temperatures.filter((item) => item.id === id);
+  const sensor = sensors.filter((item) => item.id === id);
 
-  if (temperature.length <= 0) {
+  if (sensor.length <= 0) {
     return res.json({});
   }
-  return res.json(temperature[0]);
+  return res.json(sensor[0]);
 });
 
-app.post('/temperatures', (req, res) => {
-  const temperature = {
+app.post('/sensors', (req, res) => {
+  const sensor = {
     'id': req.body.id,
     'name': req.body.name,
     'value': req.body.value,
   };
-  temperatures.push(temperature);
+  sensors.push(sensor);
 
-  res.json(temperature);
+  res.json(sensor);
 });
 
-app.delete('/temperatures/:id', (req, res) => {
+app.delete('/sensors/:id', (req, res) => {
   console.log(req.params.id);
 
   return res.json({});
@@ -54,5 +56,5 @@ app.delete('/temperatures/:id', (req, res) => {
 /* App listen */
 app.listen(3000, () => {
   console.log(`nodejs-backend is running`);
-  console.log(`open in http://127.0.0.1:3000/temperatures`);
+  console.log(`open in http://127.0.0.1:3000/sensors`);
 });
