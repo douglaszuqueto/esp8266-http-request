@@ -40,6 +40,7 @@ app.post('/sensors', (req, res) => {
   const sensor = {
     'id': req.body.id,
     'name': req.body.name,
+    'type': req.body.type,
     'value': req.body.value,
   };
   sensors.push(sensor);
