@@ -5,8 +5,8 @@
 
 // ############# VARIABLES ############### //
 
-const char* SSID = ""; // ssid
-const char* PASSWORD = "C"; // wifi password
+const char* SSID = ""; // rede wifi
+const char* PASSWORD = ""; // senha da rede wifi
 
 String BASE_URL = "http://192.168.15.3:3000/";
 
@@ -14,7 +14,7 @@ String BASE_URL = "http://192.168.15.3:3000/";
 
 void initSerial();
 void initWiFi();
-void httpGet();
+void httpRequest(String path);
 
 // ############### OBJECTS ################# //
 
@@ -31,10 +31,10 @@ void setup() {
 // ############### LOOP ################# //
 
 void loop() {
-  Serial.println("[GET] /temperatures - sending request...");
+  Serial.println("[GET] /sensors/1234 - sending request...");
   Serial.println("");
 
-  httpGet(BASE_URL + "temperatures/1234");
+  httpRequest("sensors/1234");
 
   Serial.println("");
   delay(1000);
@@ -43,9 +43,9 @@ void loop() {
 
 // ############# HTTP REQUEST ################ //
 
-void httpGet(String url)
+void httpRequest(String path)
 {
-  String payload = makeRequest(url);
+  String payload = makeRequest(path);
 
   if (!payload) {
     return;
@@ -55,9 +55,9 @@ void httpGet(String url)
 
 }
 
-String makeRequest(String url)
+String makeRequest(String path)
 {
-  http.begin(url);
+  http.begin(BASE_URL + path);
   int httpCode = http.GET();
 
   if (httpCode < 0) {
@@ -70,9 +70,10 @@ String makeRequest(String url)
     return "";
   }
 
-  return http.getString();
-
+  String response =  http.getString();
   http.end();
+
+  return response;
 }
 
 // ###################################### //
