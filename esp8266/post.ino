@@ -5,8 +5,8 @@
 
 // ############# VARIABLES ############### //
 
-const char* SSID = ""; // ssid
-const char* PASSWORD = ""; // wifi password
+const char* SSID = "VIVO-8594"; // rede wifi
+const char* PASSWORD = "C6620E8594"; // senha da rede wifi
 
 String BASE_URL = "http://192.168.15.3:3000/";
 
@@ -14,7 +14,7 @@ String BASE_URL = "http://192.168.15.3:3000/";
 
 void initSerial();
 void initWiFi();
-void httpPost(String url);
+void httpRequest(String path);
 
 // ############### OBJECTS ################# //
 
@@ -31,10 +31,10 @@ void setup() {
 // ############### LOOP ################# //
 
 void loop() {
-  Serial.println("[POST] /temperatures - sending request...");
+  Serial.println("[POST] /sensors - sending request...");
   Serial.println("");
 
-  httpPost(BASE_URL + "temperatures");
+  httpRequest("sensors");
 
   Serial.println("");
   delay(1000);
@@ -43,9 +43,9 @@ void loop() {
 
 // ############# HTTP REQUEST ################ //
 
-void httpPost(String url)
+void httpRequest(String path)
 {
-  String payload = makeRequest(url);
+  String payload = makeRequest(path);
 
   if (!payload) {
     return;
@@ -55,12 +55,12 @@ void httpPost(String url)
 
 }
 
-String makeRequest(String url)
+String makeRequest(String path)
 {
-  http.begin(url);
+  http.begin(BASE_URL + path);
   http.addHeader("content-type", "application/x-www-form-urlencoded");
 
-  String body = "id=7890&name=NTC&value=10";
+  String body = "id=7890&name=NTC&type=temperature&value=10";
 
   int httpCode = http.POST(body);
 
@@ -74,9 +74,10 @@ String makeRequest(String url)
     return "";
   }
 
-  return http.getString();
-
+  String response =  http.getString();
   http.end();
+
+  return response;
 }
 
 // ###################################### //
