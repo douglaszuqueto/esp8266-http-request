@@ -95,6 +95,8 @@ app.listen(3000, () => {
 });
 ```
 
+O script se encontra dentro da pasta **server/nodejs**. Para rodar basta ter o nodejs instalado na maquina. Com ele instalado, voce só precisa baixar as depedências do projeto utilizando o NPM ou Yarn.
+
 ## Biblioteca HTTPClient
 
 A lib HTTPClient provê de forma simples e descomplicada realizar comunicações http com um servidor. 
