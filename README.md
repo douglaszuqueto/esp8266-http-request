@@ -2,14 +2,28 @@
 
 ![img](https://raw.githubusercontent.com/douglaszuqueto/esp8266-http-request/master/files/esp8266-request.png)
 
-## HTTP
+## Introdução
+
+Certamente você já precisou recuperar algum dado de um servidor, ou até mesmo enviar algum dado para o mesmo a partir do seu embarcado - neste caso estamos nos referindo ao nosso querido ESP8266.
+
+Portanto, neste artigo, será abordado um pequeno cenário de como utilizar o protocolo HTTP para recuperação/envio de dados ao servidor. 
+
+## HTTP(Hypertext Transfer Protocol)
+
+O famoso protocolo HTTP. Quem nunca usou?(não se atreva a dizer que não :P).
+
+Um protocolo baseado na arquitetura cliente/servidor, amplamente utilizado no nosso dia a dia - creio que grande parte das comunicações hoje em dia, usufruem do http.
 
 ### Verbos HTTP(mais utilizados - principalmente em API's)
 
-* GET - requisitar registros do servidor
-* POST - enviar algo para o servidor
-* PUT - atualizar algum registro do servidor
-* DELETE - remover algum registro do servidor
+O HTTP disponha de um conjunto de verbos http, então sem muitas delongas, fica abaixo os mais comuns e utilizados hoje nas comunicações:
+
+| Verbo | função |
+| --- | --- |
+| GET | requisitar registros do servidor |
+| POST | enviar algo para o servidor |
+| PUT | atualizar algum registro do servidor |
+| DELETE | remover algum registro do servidor |
 
 ## Estrutura simples de uma requisição HTTP
 
