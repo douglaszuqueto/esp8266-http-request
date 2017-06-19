@@ -72,3 +72,9 @@ String makeRequest(String url)
 ## Referências
 
 * [Biblioteca ESP8266HTTPClient](https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266HTTPClient);
+
+## Está gostando dos materiais que vêm sendo produzidos?
+
+Caso tenha gostado deste e de outros materiais que mantenho, no dia 18/06/2017 abri uma campanha de financiamento recorrente com o objetivo de captar recursos para uma dedicação fulltime em projetos open source.
+ 
+Portanto, caso deseja me ajudar, fica aqui o [link do meu Apoia.se](https://apoia.se/douglaszuqueto). Desde já, muito obrigado :D.
