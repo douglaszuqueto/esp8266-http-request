@@ -217,7 +217,7 @@ Com base no firmware acima, basicamente pouca coisa muda, veja abaixo a principa
 
 ## Finalizando
 
-Todos exemplos testados estarão no repositório do Github, segue o link:
+Todos exemplos que foram testados na construção deste artigo estarão no repositório do Github, segue o link:
 
 * [GET](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get.ino)
 * [POST](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/post.ino)
