@@ -219,14 +219,19 @@ Com base no firmware acima, basicamente pouca coisa muda, veja abaixo a principa
 
 Todos exemplos que foram testados na construção deste artigo estarão no repositório do Github, segue o link:
 
-* [GET](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get.ino)
-* [POST](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/post.ino)
-* [GET by id - busca por ID](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get-by-id.ino)
-* [DELETE](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/delete.ino)
+* [GET](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get.ino);
+* [POST](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/post.ino);
+* [GET by id - busca por ID](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get-by-id.ino);
+* [DELETE](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/delete.ino);
+
+Deu para perceber o quão simples fica realizar requisições http a partir do esp? Eu particularmente curti bastante - eu nunca havia utilizado esta lib :P.
+
+Os próximos passos será testar mais a biblioteca e também realizar o parser do JSON retornado pelo servidor utilizando a lib **ArduinoJSON**. Assim, dando alguma utilidade de fato ao contexto de determinado projeto.
 
 ## Referências
 
 * [Biblioteca ESP8266HTTPClient](https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266HTTPClient);
+* [Hypertext Transfer Protocol](https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol);
 
 ## Está gostando dos materiais que vêm sendo produzidos?
 
