@@ -92,7 +92,7 @@ Serial.println("##[RESULT]## ==> " + payload); // imprimi na serial a string ret
 ```
 ### Exemplo contendo todo firmware para o ESP
 
-```
+```c
 // ############# LIBRARIES ############### //
 
 #include <ESP8266WiFi.h>
