@@ -90,8 +90,112 @@ http.end(); // finaliza a conexao
 Serial.println("##[RESULT]## ==> " + payload); // imprimi na serial a string retornada pelo servidor
 
 ```
+### Exemplo contendo todo firmware para o ESP
 
+```
+// ############# LIBRARIES ############### //
+
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+
+// ############# VARIABLES ############### //
+
+const char* SSID = ""; // rede wifi
+const char* PASSWORD = ""; // senha da rede wifi
+
+String BASE_URL = "http://192.168.15.3:3000/";
+
+// ############# PROTOTYPES ############### //
+
+void initSerial();
+void initWiFi();
+void httpRequest(String path);
+
+// ############### OBJECTS ################# //
+
+WiFiClient client;
+HTTPClient http;
+
+// ############## SETUP ################# //
+
+void setup() {
+  initSerial();
+  initWiFi();
+}
+
+// ############### LOOP ################# //
+
+void loop() {
+  Serial.println("[GET] /sensors - sending request...");
+  Serial.println("");
+
+  httpRequest("sensors");
+
+  Serial.println("");
+  delay(1000);
+
+}
+
+// ############# HTTP REQUEST ################ //
+
+void httpRequest(String path)
+{
+  String payload = makeRequest(path);
+
+  if (!payload) {
+    return;
+  }
+
+  Serial.println("##[RESULT]## ==> " + payload);
+
+}
+
+String makeRequest(String path)
+{
+  http.begin(BASE_URL + path);
+  int httpCode = http.GET();
+
+  if (httpCode < 0) {
+    Serial.println("request error - " + httpCode);
+    return "";
+
+  }
+
+  if (httpCode != HTTP_CODE_OK) {
+    return "";
+  }
+
+  String response =  http.getString();
+  http.end();
+
+  return response;
+}
+
+// ###################################### //
+
+// implementacao dos prototypes
+
+void initSerial() {
+  Serial.begin(115200);
+}
+
+void initWiFi() {
+  delay(10);
+  Serial.println("Conectando-se em: " + String(SSID));
+
+  WiFi.begin(SSID, PASSWORD);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(100);
+    Serial.print(".");
+  }
+  Serial.println();
+  Serial.print("Conectado na Rede " + String(SSID) + " | IP => ");
+  Serial.println(WiFi.localIP());
+}
+```
 ## Realizando requisições ao Servidor
+
+Com base no firmware acima, basicamente pouca coisa muda, veja abaixo a principal mudança referente a cada método utilizado.
 
 ### GET - recuperando dados do servidor
 
@@ -110,6 +214,15 @@ Serial.println("##[RESULT]## ==> " + payload); // imprimi na serial a string ret
 
   int httpCode = http.POST(body);
 ```
+
+## Finalizando
+
+Todos exemplos testados estarão no repositório do Github, segue o link:
+
+* [GET](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get.ino)
+* [POST](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/post.ino)
+* [GET by id - busca por ID](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/get-by-id.ino)
+* [DELETE](https://github.com/douglaszuqueto/esp8266-http-request/blob/master/esp8266/delete.ino)
 
 ## Referências
 
