@@ -10,7 +10,7 @@ Portanto, neste artigo, será abordado um pequeno cenário de como utilizar o pr
 
 ## HTTP(Hypertext Transfer Protocol)
 
-O famoso protocolo HTTP. Quem nunca usou?(não se atreva a dizer que não :P).
+O famoso protocolo HTTP. Quem nunca usou?.
 
 Um protocolo baseado na arquitetura cliente/servidor, amplamente utilizado no nosso dia a dia - creio que grande parte das comunicações hoje em dia, usufruem do http.
 
@@ -25,7 +25,7 @@ O HTTP disponha de um conjunto de verbos http, então sem muitas delongas, fica 
 | PUT | atualizar algum registro no servidor |
 | DELETE | remover algum registro do servidor |
 
-Nas descrições, penssem em um recurso como manipular um sensor - cadastrá-lo, requisitar, atualizar e remover - famoso **CRUD** (create, read, update, delete).
+Nas descrições dos verbos mencionados acima, pensem em um recurso de como manipular um sensor - cadastrá-lo, requisitar, atualizar e remover - famoso **CRUD** (create, read, update, delete).
 
 ## WebService para teste
 
@@ -33,9 +33,9 @@ Antes de continuar, segue uma simples estrutura para testes de um simples webser
 
 ```js
 const express = require('express')
-  , bodyParser = require('body-parser')
-  , cors = require('cors')
-  , app = express();
+    , bodyParser = require('body-parser')
+    , cors = require('cors')
+    , app = express();
 
 /* Middlewares */
 app.use(bodyParser.json());
@@ -82,12 +82,6 @@ app.post('/sensors', (req, res) => {
   res.json(sensor);
 });
 
-app.delete('/sensors/:id', (req, res) => {
-  console.log(req.params.id);
-
-  return res.json({});
-});
-
 /* App listen */
 app.listen(3000, () => {
   console.log(`nodejs-backend is running`);
@@ -99,7 +93,7 @@ O script se encontra dentro da pasta **server/nodejs**. Para rodar basta ter o n
 
 ## Biblioteca HTTPClient
 
-A lib HTTPClient provê de forma simples e descomplicada realizar comunicações http com um servidor. 
+A lib HTTPClient provê de forma simples e descomplicada **realizar comunicações http** com um servidor. 
  
 Possui um conjuntos de métodos simples e abstratos caso seja necessário usar algo mais complexo. A API em si, achei deveras interessante e de fácil entendimento.
 
@@ -115,7 +109,7 @@ e.. para utilizar, basta criar o objeto da mesma:
 HTTPClient http;
 ```
 
-A partir deste momento, você já esta apto a realizar uma comunicação http com o servidor. Será abordado num tópico futuro.
+A partir deste momento, você já esta apto a realizar uma comunicação http com o servidor, será abordado em um tópico futuro, mas antes de começar, vamos dar uma explorada nos principais métodos que a biblioteca oferece.
 
 ### Métodos
 
@@ -144,13 +138,13 @@ void end(void); // responsavel por encerrar a comunicação
 // ############# HTTP REQUEST ################ //
 
 http.begin('URL DO SEU SERVICO'); // inicia a comunicacao com base na sua url
-int httpCode = http.GET(); // efetua uma requisicao do tipo get e retorna o código de status da coenxao
+int httpCode = http.GET(); // efetua uma requisicao do tipo get e retorna o código de status da conexao
 
 if (httpCode < 0) { // caso o status for negativo, mostrará a mensagem no monitor serial
     Serial.println("request error - " + httpCode);
     return;
 }
-if (httpCode != HTTP_CODE_OK) { // caso o statuso for diferente de 200, reinicia o ciclo da requisicao
+if (httpCode != HTTP_CODE_OK) { // caso o status for diferente de 200, reinicia o ciclo da requisicao
     return;
 }
 String payload = http.getString(); // passando das verificacoes acima, voce tem acesso ao corpo da mensagem retornado pelo servidor
@@ -160,7 +154,7 @@ http.end(); // finaliza a conexao
 Serial.println("##[RESULT]## ==> " + payload); // imprimi na serial a string retornada pelo servidor
 
 ```
-### Exemplo contendo todo firmware para o ESP
+### Exemplo contendo todo firmware(básico) para o ESP
 
 ```c
 // ############# LIBRARIES ############### //
@@ -265,7 +259,7 @@ void initWiFi() {
 ```
 ## Realizando requisições ao Servidor
 
-Com base no firmware acima, basicamente pouca coisa muda, veja abaixo a principal mudança referente a cada método utilizado.
+Com base no firmware acima, basicamente pouca coisa mudará em relação ao uso de outros métodos HTTP. Veja abaixo como ficaria o uso.
 
 ### GET - recuperando dados do servidor
 

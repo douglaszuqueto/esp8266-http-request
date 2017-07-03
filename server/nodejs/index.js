@@ -1,7 +1,7 @@
 const express = require('express')
-  , bodyParser = require('body-parser')
-  , cors = require('cors')
-  , app = express();
+    , bodyParser = require('body-parser')
+    , cors = require('cors')
+    , app = express();
 
 /* Middlewares */
 app.use(bodyParser.json());
@@ -46,12 +46,6 @@ app.post('/sensors', (req, res) => {
   sensors.push(sensor);
 
   res.json(sensor);
-});
-
-app.delete('/sensors/:id', (req, res) => {
-  console.log(req.params.id);
-
-  return res.json({});
 });
 
 /* App listen */
