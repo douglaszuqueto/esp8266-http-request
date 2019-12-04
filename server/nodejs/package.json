@@ -1,28 +1,17 @@
 {
   "name": "douglaszuqueto-esp8266-http-request",
-  "version": "1.0",
-  "author": "Douglas Zuqueto <douglas.zuqueto@gmail.com> (https://douglaszuqueto.com)",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/douglaszuqueto/esp8266-http-request"
-  },
-  "license": "MIT",
-  "keywords": [
-    "nodemcu",
-    "api",
-    "http",
-    "json",
-    "nodejs"
-  ],
-  "scripts": {
-    "prod": "node index",
-    "dev": "nodemon index"
-  },
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "cors": "^2.8.3",
-    "express": "^4.15.3"
-  }
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Douglas Zuqueto <douglas.zuqueto@gmail.com> (https://douglaszuqueto.com)",
+  "license": "MIT"
 }
